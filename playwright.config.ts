@@ -63,6 +63,22 @@ export default defineConfig({
             dependencies: ['setup']
         },
 
+        {
+            name: 'visual',
+            use: {
+                browserName: 'chromium',
+                headless: false,
+                baseURL: process.env.BASE_URL,
+                screenshot: "on",
+                video: "on",
+            },
+            expect: {
+                timeout: 10_000,
+                toHaveScreenshot: {
+                    maxDiffPixels: 100,
+                }
+            }
+        },
 
         {
             name: 'api_tests',
